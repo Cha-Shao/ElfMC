@@ -39,6 +39,7 @@ import {NInput,
         NCheckbox,
         NButton,
         NPopover} from 'naive-ui'
+import axios from 'axios'
 
 const inputUser = ref(null)
 const inputPassword = ref(null)

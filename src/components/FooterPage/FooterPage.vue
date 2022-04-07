@@ -33,14 +33,18 @@
 
                 <div class="infosCards">
                     <div class="card contactUs">
-                        <h3 class="title">联系我们</h3>
-                        <n-avatar round src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" class="avatar"/>
-                        <n-avatar round src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" class="avatar"/>
-                        <n-avatar round src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" class="avatar"/>
-                        <img src="@/assets/puzzle-dynamic-color.png" alt="" class="cardImg">
+                        <n-space justify="center" style="align-items: center">
+                            <div>
+                                <h3 class="title">联系我们</h3>
+                                <n-avatar round src="https://tenapi.cn/qqimg/?qq=2193113484" class="avatar"/>
+                                <n-avatar round src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" class="avatar"/>
+                                <n-avatar round src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" class="avatar"/>
+                                <img src="@/assets/puzzle-dynamic-color.png" alt="" class="cardImg">
+                            </div>
+                        </n-space>
                     </div>
-                    <div class="card followUs" @click="window.open('https://space.bilibili.com/38827513')">
-                        <n-space style="align-items: center">
+                    <div class="card followUs" onclick="window.open('https://space.bilibili.com/38827513')">
+                        <n-space justify="center" style="align-items: center">
                             <div style="text-align: right;">
                                 <h3 class="title">ElfMC Studio</h3>
                                 <h3 class="title">Bilibili</h3>
@@ -49,8 +53,12 @@
                             <n-avatar round :src="logoAvatar" :size="72"/>
                         </n-space>
                     </div>
-                    <div class="card joinUs">
-                        <h3 class="title">ElfMC | 交流群</h3>
+                    <div class="card joinUs" onclick="window.open('https://tenapi.cn/qun/?qun=1074692739')">
+                        <n-space justify="center" style="align-items: center">
+                            <img src="@/assets/QQ-square-fill.svg" alt=""
+                            style="line-height: 0em;width: 2em;">
+                            <h3 class="title"> QQ | ElfMC 交流群</h3>
+                        </n-space>
                     </div>
                 </div>
 
@@ -87,10 +95,33 @@ import {NCard,
         NAvatar,
         NButton} from 'naive-ui'
 import Configs from '@/configs'
+import axios from 'axios'
 
 const isWidth = window.innerWidth >= 1300
 
 import logoAvatar from '@/assets/logo-avatar.png'
+
+const getBilibiliInfo = () => {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', 'https://tenapi.cn/bilibili/?uid=38827513')
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                resolve(JSON.parse(xhr.responseText))
+            } else {
+                reject(xhr.status)
+            }
+        }
+        xhr.send()
+    })
+}
+
+// const getBInfo = () => {
+//     axios.get('https://tenapi.cn/bilibili/?uid=38827513').then(res => {
+//         console.log(res.data)
+//     })
+// }
+// getBInfo()
 </script>
 
 <style lang="scss" scoped>
@@ -111,9 +142,8 @@ a{
 .container{
     background: $subBackgroundColor;
     .part{
-        max-width: 1600px;
-        margin: 0 auto;
-        margin: 12px;
+        max-width: 1400px;
+        margin: 12px auto;
         margin-top: 0;
         .introduce{
             flex-shrink: 0;
@@ -240,5 +270,6 @@ a{
     bottom: -25px;
     max-height: 150px;
     height: 150%;
+    z-index: -1;
 }
 </style>
