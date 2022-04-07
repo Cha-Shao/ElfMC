@@ -1,0 +1,9 @@
+LOGO:
+主色: 	#				|	#45F5A9
+副色: 	PANTONE 3115 XGC	|	#29BCCB
+
+UI:
+主色:	Archroma 706-360 F	|	#06E07D
+副色:	PANTONE 3255 C		|	#2CD5C4
+
+非白:	#E6E6FA
