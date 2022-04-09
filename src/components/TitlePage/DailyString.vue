@@ -24,19 +24,22 @@ let randomString = Math.floor(Math.random() * 3)
 
 // // 给hour赋值现在是几点
 let hour = new Date().getHours()
-// 早上好 上午好 中午好 下午好 晚上好
-if(hour >= 0 && hour < 6){
-    hour = '晚上好'
-}else if(hour >= 6 && hour < 9){
-    hour = '早上好'
-}else if(hour >= 9 && hour < 12){
-    hour = '上午好'
-}else if(hour == 12){
-    hour = '中午好'
-}else if(hour >= 13 && hour < 18){
-    hour = '下午好'
-}else if(hour >= 18 && hour < 24){
-    hour = '晚上好'
+// // 早上好 上午好 中午好 下午好 晚上好
+switch (hour) {
+    case (0 <= hour < 6):
+        hour = '晚上好'; break
+    case 6 <= hour < 9:
+        hour = '早上好'; break
+    case 9 <= hour < 12:
+        hour = '上午好'; break
+    case 12:
+        hour = '中午好'; break
+    case 13 <= hour < 18:
+        hour = '下午好'; break
+    case 18 <= hour < 24:
+        hour = '晚上好'; break
+    default:
+        hour = '你好'; break
 }
 
 </script>

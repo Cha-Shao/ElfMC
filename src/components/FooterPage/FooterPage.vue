@@ -96,8 +96,19 @@ import {NCard,
         NButton} from 'naive-ui'
 import Configs from '@/configs'
 import axios from 'axios'
+import { ref } from 'vue'
 
-const isWidth = window.innerWidth >= 1300
+const isWidth = ref(true)
+// 监听窗口宽度
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 1300) {
+        isWidth.value = false
+    } else {
+        isWidth.value = true
+    }
+})
+
+// const isWidth = window.innerWidth >= 1300
 
 import logoAvatar from '@/assets/logo-avatar.png'
 
@@ -142,7 +153,6 @@ a{
 .container{
     background: $subBackgroundColor;
     .part{
-        max-width: 1400px;
         margin: 12px auto;
         margin-top: 0;
         .introduce{
