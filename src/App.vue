@@ -45,6 +45,12 @@ scrollAnimation(currentY, 0)
 
 <style lang="scss">
 $lightFontColor: #2C3E50;
+
+// 取消atropos的默认样式
+.atropos-inner{
+  overflow: unset !important;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
